@@ -4,34 +4,30 @@
     margin: 0 0;
     padding: 0 0;
     font-family: 'Times New Roman', Times, serif; 
-    
+   
 }
 
 .container{
-
     border: 3px, solid rgb(76, 0, 255);
     width: 70%;
     margin: 0 auto;
     padding: 1%;
-}
-
-.container1{
-
-    border: 3px, solid rgb(76, 0, 255);
-    width: 70%;
-    margin: 0 auto;
-    padding: 1%;
-    background-color: yellowgreen;
+    
 }
 .img-responsive{
     width: 100%;
 }
+
+.food-menu{
+    padding: 20% 0;
+    
+}
+
 .text-right{
     text-align: right;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: large;
     font-weight: bold;
-    
 }
 
 .text-center{
@@ -71,7 +67,7 @@ a:hover{
 }
 
 h2{
-    color: #2f3542;
+    color: yellow;
     font-size: 2rem;
     margin-bottom: 2%;
 }
@@ -89,19 +85,11 @@ position:relative;
 .logo{
     height: 50px;
     width:  100px;
-    
-    float:left;
-    
+    float: left;
     
 }
 .menu{
-    line-height: 75px;
-    
-    background-color: greenyellow;
-    background-repeat: no-repeat;
-    background-size:contain;
-    
-    
+    line-height: 30px;
 }
 
 .menu ul{
@@ -116,20 +104,20 @@ position:relative;
 /* css for food ssearch class */
 
 .food-search{
-    background-image: url(../images/1.jpg);
+   /* background-image: url(../images/cofee.jpeg);*/
     background-size: cover;
     background-repeat: no-repeat;
     background-position:top;
     padding: 6% 0;
-    background: cadetblue;
-    
+    background-color: yellowgreen;
+   
 }
 
 .food-search input[type="search"]{
     width: 50%;
     padding: 1%;
     font-size: 1rem;
-    border: none;
+    border: 1px;
     border-radius: 5px;
 }
 
@@ -160,11 +148,15 @@ margin:2%;
  width:19%;
  float:left;
 }
+.mar {
+margin-top: 3px;
+}
 
 .food-menu-desc{
    width:70%;
   float:left;
   margin-left:8%;
+  background-color: linen;
 }
 
 .food-price{
@@ -190,7 +182,7 @@ list-style-type: none;
 @media only screen and (max-width:768px){
     .logo{
         width: 80%;
-        float:inline-start;
+        float: none;
         margin: 1% auto;
     }
     .menu ul{
@@ -225,6 +217,7 @@ list-style-type: none;
 
     .food-menu{
         padding: 20% 0;
+        background-color: yellowgreen;
     }
     .food-menu-box{
         width: 90%;

@@ -1,27 +1,22 @@
 /* 
 */
+
+body{
+    background-image:url(images/8.jpeg);
+   
+}
 *{
     margin: 0 0;
     padding: 0 0;
     font-family: 'Times New Roman', Times, serif; 
-    
 }
 
 .container{
-
     border: 3px, solid rgb(76, 0, 255);
     width: 70%;
     margin: 0 auto;
     padding: 1%;
-}
 
-.container1{
-
-    border: 3px, solid rgb(76, 0, 255);
-    width: 70%;
-    margin: 0 auto;
-    padding: 1%;
-    background-color: yellowgreen;
 }
 .img-responsive{
     width: 100%;
@@ -30,7 +25,9 @@
     text-align: right;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: large;
-    font-weight: bold;
+    font-weight: bold;  
+    list-style: none;
+    list-style-type:circle;
     
 }
 
@@ -38,7 +35,7 @@
     text-align: center;
 }
 .text-white{
- color: white;
+ color:white;
 }
 .clearfix{
     clear: both;
@@ -89,19 +86,14 @@ position:relative;
 .logo{
     height: 50px;
     width:  100px;
-    
-    float:left;
-    
+    float: left;
     
 }
 .menu{
-    line-height: 75px;
-    
-    background-color: greenyellow;
-    background-repeat: no-repeat;
-    background-size:contain;
-    
-    
+    line-height: 30px;
+    }
+.cart {
+    padding-top: 10px;
 }
 
 .menu ul{
@@ -116,20 +108,18 @@ position:relative;
 /* css for food ssearch class */
 
 .food-search{
-    background-image: url(../images/1.jpg);
+    background-image: url(../images/1.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position:top;
     padding: 6% 0;
-    background: cadetblue;
-    
 }
 
 .food-search input[type="search"]{
     width: 50%;
     padding: 1%;
     font-size: 1rem;
-    border: none;
+    border: 1px;
     border-radius: 5px;
 }
 
@@ -159,6 +149,9 @@ margin:2%;
 .food-menu-img{
  width:19%;
  float:left;
+}
+.mar {
+margin-top: 1px;
 }
 
 .food-menu-desc{
@@ -190,7 +183,7 @@ list-style-type: none;
 @media only screen and (max-width:768px){
     .logo{
         width: 80%;
-        float:inline-start;
+        float: none;
         margin: 1% auto;
     }
     .menu ul{
@@ -235,4 +228,11 @@ list-style-type: none;
         padding: 5% 0;
     }
 
+}
+.product-Qty .select{
+     margin-bottom: 12px;
+     padding-bottom: 10px;
+     height: 30px;
+     width: 25%;
+     
 }
