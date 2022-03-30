@@ -1,191 +1,89 @@
-<?php include('server.php');
-//if user not logged in
-/*if (empty($_SESSION['username'])) {
-    header('location: login.php');
-}*/
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant Ordering Website  </title>
-<!--linking css-->
-<link rel="stylesheet" href="css/style.css">
-<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">-->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <title>Get City State from Pincode</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <style> 
+   #pincode{width:21%;}
+.textbox{
+  width: 30%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  margin-left:2%;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+	height:46px;
+	color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+	margin-left:2%;
+}
+h2{font-family:Arial; font-size:30px; text-align:center;}
+</style>
 </head>
 <body>
-    <div class="content"> 
-        <?php if (isset($_SESSION['success'])): ?> 
-            <div class="error success">
-                <h3>
-                    <?php echo $_SESSION['success'];
-                    unset($_SESSION['success']);
-                    ?>
-                
-                </h3>
 
-            </div>
-        <?php endif ?>
-
-        <?php if (isset($_SESSION["username"])): ?>
-            <p>Welcome <strong><?php echo $_SESSION['username']?> </strong></p>
-            <p> <a href="index.php?logout='1'" style="color: red;">Logout</a></p>
-            <?php endif ?>
-    </div>
-    <!--Vavbar section-->
-    <section class="navbar">
-        <div class="container1">
-<div class="logo">
-    <img src="images/Capture.PNG" alt="Restaurant logo" class="img-responsive">
+<div class="container">
+	<div><h2>Get City State from Pincode</h2></div>
+	<div>&nbsp;</div>
+	<form autocomplete="off" method="post" id="frmPinCode" style="text-align:center;">
+		<div>
+			<input type="text" class="textbox" name="pincode" id="pincode" placeholder="Enter Pincode"  autocomplete="new-password">
+			<input type="button" class="btn" value="Get Details" onclick="get_details()">
+		</div>
+		<div>&nbsp;</div>
+		<div>
+			<input type="text" class="textbox" id="city" disabled placeholder="City"><br/><br/>
+			<input type="text" class="textbox" id="state" disabled placeholder="State">
+		</div>
+	</form>
 </div>
-<div class="menu text-right">
-    <ul>
-        <li>
-            <a href="login.php">          Login/Register</a>
-        </li>
-        <li>
-            <a href="index.php">Home</a>
-        </li>
-        <li>
-            <a href="about.php">About</a>
-        </li>
-        <!--<li>
-            <a href="#">Foods</a>
-        </li>-->
-        <li>
-            <a href="suggesr.php">Feedback/Suggestion</a>
-        </li>
-    </ul>
-
-</div>
-    <div class="clearfix"></div>
-</div>
-    </section>
-
-    <section class="food-search text-center">
-        <div class="container">
-
-<form action="search.php" method="GET">
-    <input type="search" placeholder="Search restaurant here" name="search">
-    <input type="submit" name="submit" value="Search" class="btn btn-primary">
-</form>
-
-</div>
-    </section>
-
-    <section class="categories">
-        <div class="container">
-            <h2 class="text-center"> Explore Foods</h2>
-
-            <a href="#"> 
-            <div class="box-3 float-container">
-                <img src="images/7.jpeg" alt="Pizza"class="img-responsive">
-                <h3 class="float-text text-white">Pizza</h3>
-            </div>
-        </a>
-            
-           <a href="#"> <div class="box-3 float-container">
-                <img src="images/6.jpeg" alt="momo"class="img-responsive">
-                <h3  class="float-text text-white">Momos</h3>
-            </div>
-        </a>
-            
-            <a href="#"><div class="box-3 float-container">
-                <img src="images/2.jpeg" alt="burger"class="img-responsive">
-                <h3 class="float-text text-white">Burger</h3>
-            </div>
-        </a>
-</div>
-    </section>
-
-    <section class="food-menu">
-        <div class="container">
-<h2 class="text-center"> Order here</h2>
-<div class="food-menu-box">
-       <div class="food-menu-img">
-       <img src="images/5.jpeg" alt="Chicken" class="img-responsive">
-       </div>
-       <div class="food-menu-desc">
-         <h4>PIZZA</h4>
-         <p class="food-price">Rs. 149</p>
-         <p class="food-desc">
-             Made with Italian sauce,chicken, and organic vegetables.
-          </p>
-          <br>
-         <a href="#" class="btn btn-primary">Order Now</a>
-       </div>     
-</div> 
-
-<div class="food-menu-box">
-       <div class="food-menu-img">
-       <img src="images/5.jpeg" alt="Chicken" class="img-responsive">
-       </div>
-       <div class="food-menu-desc">
-         <h4>CHICKEN PIZZA</h4>
-         <p class="food-price">Rs. 249</p>
-         <p class="food-desc">
-             Made with Italian sauce,chicken, and organic vegetables.
-          </p>
-          <br>
-         <a href="#" class="btn btn-primary">Order Now</a>
-       </div>     
-</div> 
-
-<div class="food-menu-box">
-       <div class="food-menu-img">
-       <img src="images/3.jpeg" alt="Chicken Hawain burger" class="img-responsive">
-       </div>
-       <div class="food-menu-desc">
-         <h4>BURGER</h4>
-         <p class="food-price">Rs. 149</p>
-         <p class="food-desc">
-             Made with Italian sauce,chicken, and organic vegetables.
-          </p>
-          <br>
-         <a href="#" class="btn btn-primary">Order Now</a>
-       </div>     
-</div> 
-
-<div class="food-menu-box">
-       <div class="food-menu-img">
-       <img src="images/4.jpeg" alt="Chicken Hawain momo" class="img-responsive">
-       </div>
-       <div class="food-menu-desc">
-         <h4>MOMO</h4>
-         <p class="food-price">Rs. 99</p>
-         <p class="food-desc">
-             Made with Italian sauce,chicken, and organic vegetables.
-          </p>
-          <br>
-         <a href="#" class="btn btn-primary">Order Now</a>
-       </div>     
-</div> 
-</section>
-
-    <section class="social">
-        <div class="container text-center">
-<ul>
-    <li> <a href="#"><img src="https://img.icons8.com/fluency/48/000000/facebook-new.png"/></a></li>
-    <li> <a href="#"><img src="https://img.icons8.com/cute-clipart/64/000000/instagram-new.png"/></a></li>
-    <li> <a href="#"><img src="https://img.icons8.com/color/48/000000/twitter--v1.png"/></a></li>
-</ul>
-      
-        
-        </div>
-      
-    
-</div>
-    </section>
-
-    <!--footer section-->
-    <section class="footer">
-        <div class="container text-center">
-<p> Thank You. Visit again. Designed by <a href="www.google.com">group 22</a></p>
-</div>
-    </section>
-
+<script>
+function get_details(){
+	var pincode=jQuery('#pincode').val();
+	if(pincode==''){
+		jQuery('#city').val('');
+		jQuery('#state').val('');
+	}else{
+		jQuery.ajax({
+			url:'get.php',
+			type:'post',
+			data:'pincode='+pincode,
+			success:function(data){
+				if(data=='no'){
+					alert('Wrong Pincode');
+					jQuery('#city').val('');
+					jQuery('#state').val('');
+				}else{
+					var getData=$.parseJSON(data);
+					jQuery('#city').val(getData.city);
+					jQuery('#state').val(getData.state);
+				}
+			}
+		});
+	}
+}
+</script>
 </body>
 </html>
